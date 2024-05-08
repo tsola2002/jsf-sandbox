@@ -5,9 +5,14 @@
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:f="http://java.sun.com/jsf/core">
       
-<head>
+<h:head>
+  <style type="text/css">
+  	.fFormat { font-weight: bold; font-size: 40px; font-family: Tahoma; color: purple;}
+  </style>
   <title><ui:insert name="title">JSF Demo Page</ui:insert></title>
-</head>
+  <!-- <link href="/resources/external.css" rel="stylesheet" type="text/css" /> -->
+  <h:outputStylesheet library="css" name="external.css" />
+</h:head>
 
 <body>
 <ui:debug hotkey="x" rendered="#{initParam['javax.faces.FACELETS_DEVELOPMENT']}"/>
@@ -21,21 +26,28 @@
 
 	<h:body>
 		<h:form>
-		
-			<h:outputLabel for="user-name">Enter Username</h:outputLabel>
-			<h:inputText id="username" value="#{user.username}">
-				<f:validateRequired/>
-			</h:inputText>
+			<p>
+				<h:outputLabel for="user-name" styleClass="fFormat">Enter Username</h:outputLabel>
+				<h:inputText styleClass="fFormat" id="username" value="#{user.username}">
+				</h:inputText>
+			</p>
 			
-			<br/>
+			<p>
+				<h:outputLabel for="password" styleClass="fFormat">Enter Password</h:outputLabel>
+				<h:inputSecret styleClass="fFormat" id="password" value="#{user.password}"></h:inputSecret>
+			</p>
 			
-			<h:outputLabel for="password">Enter Password</h:outputLabel>
-			<h:inputSecret id="password" value="#{user.password}"></h:inputSecret>
 			
 			<h:commandButton value="Submit" style="font-weight: bold; font-size: 30px;
 			 font-family: verdana; color: green" action="response.xhtml">
-			 </h:commandButton>
+			</h:commandButton>
 		</h:form>
+		
+			<p >	
+				<h:outputLabel styleClass="hFormat">
+					here we go again
+				</h:outputLabel>		
+			</p>
 	</h:body>
   
 </div>
