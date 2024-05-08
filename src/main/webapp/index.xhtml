@@ -23,14 +23,18 @@
 		<h:form>
 		
 			<h:outputLabel for="user-name">Enter Username</h:outputLabel>
-			<h:inputText id="username" value="#{user.username}"></h:inputText>
+			<h:inputText id="username" value="#{user.username}">
+				<f:validateRequired/>
+			</h:inputText>
 			
 			<br/>
 			
 			<h:outputLabel for="password">Enter Password</h:outputLabel>
 			<h:inputSecret id="password" value="#{user.password}"></h:inputSecret>
 			
-			<h:commandButton value="Submit" action="response.xhtml"></h:commandButton>
+			<h:commandButton value="Submit" style="font-weight: bold; font-size: 30px;
+			 font-family: verdana; color: green" action="response.xhtml">
+			 </h:commandButton>
 		</h:form>
 	</h:body>
   
