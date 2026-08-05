@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="jakarta.faces.html"
+      xmlns:f="jakarta.faces.core"
+      xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+
+    <title>Students</title>
+
+</h:head>
+
+<h:body>
+
+    <h:form>
+
+        <p:panel header="Student Form">
+
+            <p:inputText value="#{studentBean.student.firstName}" placeholder="First Name"/>
+
+            <br/><br/>
+
+            <p:inputText value="#{studentBean.student.lastName}" placeholder="Last Name"/>
+
+            <br/><br/>
+
+            <p:inputText value="#{studentBean.student.email}" placeholder="Email"/>
+
+            <br/><br/>
+
+            <p:commandButton value="Save"
+
+                             action="#{studentBean.save}"
+
+                             update="@form"/>
+
+        </p:panel>
+
+        <br/>
+
+        <p:dataTable value="#{studentBean.students}"
+
+                     var="s">
+
+            <p:column headerText="ID">
+
+                #{s.id}
+
+            </p:column>
+
+            <p:column headerText="First">
+
+                #{s.firstName}
+
+            </p:column>
+
+            <p:column headerText="Last">
+
+                #{s.lastName}
+
+            </p:column>
+
+            <p:column headerText="Email">
+
+                #{s.email}
+
+            </p:column>
+
+            <p:column>
+
+                <p:commandButton value="Edit"
+
+                                 action="#{studentBean.edit(s)}"
+
+                                 update="@form"/>
+
+            </p:column>
+
+            <p:column>
+
+                <p:commandButton value="Delete"
+
+                                 action="#{studentBean.delete(s)}"
+
+                                 update="@form"/>
+
+            </p:column>
+
+        </p:dataTable>
+
+    </h:form>
+
+</h:body>
+
+</html>
