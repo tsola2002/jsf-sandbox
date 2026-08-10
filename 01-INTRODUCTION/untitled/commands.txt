@@ -1,7 +1,12 @@
-// CPOY .WAR FILE TO TOMCATS DIRECTORY
-copy target\studentcrud-1.0-SNAPSHOT.war C:\apache-tomcat-9.0\webapps\
+mvn clean
 
- // THIS WILL START THE TOMCAT SERVER
- C:\apache-tomcat-9.0\bin\startup.bat
+mvn package
 
- // THIS WILL STOP THE TOMCAT SERVER
+// COPY .WAR FILE TO TOMCATS DIRECTORY
+copy /Y target\studentcrud-1.0-SNAPSHOT.war C:\apache-tomcat-9.0\webapps\
+
+// THIS WILL STOP THE TOMCAT SERVER
+C:\apache-tomcat-9.0\bin\shutdown.bat
+
+// THIS WILL START THE TOMCAT SERVER
+C:\apache-tomcat-9.0\bin\startup.bat
