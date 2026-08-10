@@ -10,3 +10,6 @@ C:\apache-tomcat-9.0\bin\shutdown.bat
 
 // THIS WILL START THE TOMCAT SERVER
 C:\apache-tomcat-9.0\bin\startup.bat
+
+// WEB APP URL
+http://localhost:8080/studentcrud-1.0-SNAPSHOT/students.xhtml
