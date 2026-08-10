@@ -2,15 +2,14 @@ package com.tsola2002.bean;
 
 import com.tsola2002.entity.Student;
 import com.tsola2002.service.StudentService;
-import jakarta.faces.view.ViewScoped;
-import jakarta.annotation.PostConstruct;
-import jakarta.faces.view.ViewScoped;
-//import jakarta.inject.Named;
 
+
+import javax.faces.bean.ManagedBean;
+import javax.faces.view.ViewScoped;
 import java.io.Serializable;
 import java.util.List;
 
-//@Named
+@ManagedBean(name = "studentBean")
 @ViewScoped
 public class StudentBean implements Serializable {
     private Student student = new Student();
@@ -19,7 +18,7 @@ public class StudentBean implements Serializable {
 
     private StudentService service = new StudentService();
 
-    @PostConstruct
+
     public void init() {
 
         students = service.list();

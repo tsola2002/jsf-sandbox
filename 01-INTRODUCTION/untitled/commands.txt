@@ -1,0 +1,7 @@
+// CPOY .WAR FILE TO TOMCATS DIRECTORY
+copy target\studentcrud-1.0-SNAPSHOT.war C:\apache-tomcat-9.0\webapps\
+
+ // THIS WILL START THE TOMCAT SERVER
+ C:\apache-tomcat-9.0\bin\startup.bat
+
+ // THIS WILL STOP THE TOMCAT SERVER

@@ -1,6 +1,7 @@
 package com.tsola2002.entity;
 
-import jakarta.persistence.*;
+
+import javax.persistence.*;
 
 @Entity
 @Table(name="students")

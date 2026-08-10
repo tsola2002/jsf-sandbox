@@ -2,8 +2,9 @@ package com.tsola2002.dao;
 
 import com.tsola2002.entity.Student;
 import com.tsola2002.repository.JpaUtil;
-import jakarta.persistence.EntityManager;
 
+
+import javax.persistence.EntityManager;
 import java.util.List;
 
 public class StudentDAO {

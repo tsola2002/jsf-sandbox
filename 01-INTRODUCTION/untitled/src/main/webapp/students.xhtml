@@ -1,89 +1,109 @@
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="jakarta.faces.html"
-      xmlns:f="jakarta.faces.core"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:p="http://primefaces.org/ui">
 
 <h:head>
 
-    <title>Students</title>
+    <title>Student Management</title>
 
 </h:head>
 
 <h:body>
 
-    <h:form>
+    <h:form id="studentForm">
 
-        <p:panel header="Student Form">
+        <p:panel header="Student Management">
 
-            <p:inputText value="#{studentBean.student.firstName}" placeholder="First Name"/>
+            <p:panelGrid columns="2">
 
-            <br/><br/>
+                <h:outputLabel value="First Name:"/>
 
-            <p:inputText value="#{studentBean.student.lastName}" placeholder="Last Name"/>
+                <p:inputText
+                        value="#{studentBean.student.firstName}"
+                        required="true"/>
 
-            <br/><br/>
 
-            <p:inputText value="#{studentBean.student.email}" placeholder="Email"/>
+                <h:outputLabel value="Last Name:"/>
 
-            <br/><br/>
+                <p:inputText
+                        value="#{studentBean.student.lastName}"
+                        required="true"/>
 
-            <p:commandButton value="Save"
 
-                             action="#{studentBean.save}"
+                <h:outputLabel value="Email:"/>
 
-                             update="@form"/>
+                <p:inputText
+                        value="#{studentBean.student.email}"
+                        required="true"/>
+
+            </p:panelGrid>
+
+
+            <br/>
+
+            <p:commandButton
+                    value="Save"
+                    action="#{studentBean.save}"
+                    update="@form"/>
 
         </p:panel>
 
+
         <br/>
 
-        <p:dataTable value="#{studentBean.students}"
 
-                     var="s">
+        <p:dataTable
+                id="studentTable"
+                value="#{studentBean.students}"
+                var="student"
+                paginator="true"
+                rows="10"
+                stripedRows="true">
 
             <p:column headerText="ID">
 
-                #{s.id}
+                <h:outputText value="#{student.id}"/>
 
             </p:column>
 
-            <p:column headerText="First">
 
-                #{s.firstName}
+            <p:column headerText="First Name">
+
+                <h:outputText value="#{student.firstName}"/>
+
+            </p:column>
+
+
+            <p:column headerText="Last Name">
+
+                <h:outputText value="#{student.lastName}"/>
 
             </p:column>
 
-            <p:column headerText="Last">
-
-                #{s.lastName}
-
-            </p:column>
 
             <p:column headerText="Email">
 
-                #{s.email}
+                <h:outputText value="#{student.email}"/>
 
             </p:column>
 
-            <p:column>
 
-                <p:commandButton value="Edit"
+            <p:column headerText="Actions">
 
-                                 action="#{studentBean.edit(s)}"
+                <p:commandButton
+                        value="Edit"
+                        action="#{studentBean.edit(student)}"
+                        update="@form"/>
 
-                                 update="@form"/>
 
-            </p:column>
-
-            <p:column>
-
-                <p:commandButton value="Delete"
-
-                                 action="#{studentBean.delete(s)}"
-
-                                 update="@form"/>
+                <p:commandButton
+                        value="Delete"
+                        action="#{studentBean.delete(student)}"
+                        update="@form"
+                        style="margin-left:10px;"/>
 
             </p:column>
 
